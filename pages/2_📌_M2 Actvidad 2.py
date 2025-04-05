@@ -27,7 +27,7 @@ st.markdown("""
 
 st.header("Solución")
 st.header("Solución")
-df = pd.read_csv("static\datasets\estudiantes_colombia.csv")
+df = pd.read_csv("pages\static\datasets\estudiantes_colombia.csv")
 df.info()
 df.describe()
 st.subheader("Selección de columnas: Nombre, Edad y Promedio")
