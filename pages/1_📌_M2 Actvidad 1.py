@@ -26,4 +26,5 @@ st.markdown("""
 """)
 
 st.header("Solución")
-
+df = pd.read_csv("estudiantes_colombia.csv")
+df.info()

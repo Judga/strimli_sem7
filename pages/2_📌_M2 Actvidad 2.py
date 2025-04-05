@@ -1,5 +1,5 @@
 import streamlit as st
-
+import pandas as pd
 # Configuración de la página
 st.set_page_config(   
     page_icon="📌",
@@ -26,4 +26,19 @@ st.markdown("""
 """)
 
 st.header("Solución")
+st.header("Solución")
+df = pd.read_csv("static\datasets\estudiantes_colombia.csv")
+df.info()
+df.describe()
+st.subheader("Selección de columnas: Nombre, Edad y Promedio")
+st.write(df[['nombre', 'edad', "promedio"]])
+opcion = st.selectbox("¿Qué quieres explorar?", 
+                      ["Nombres", "Edad", "Promedio"])
 
+if opcion == "Nombres":
+    st.write(df.head())
+elif opcion == "Edad":
+    st.write(df.describe())
+elif opcion == "Promedio":
+    promedio = st.slider("promedio", 0, 7, 2)
+    st.write(df[df['promedio'] >= promedio])
