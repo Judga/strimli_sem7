@@ -1,5 +1,5 @@
 import streamlit as st
-
+import pandas 
 # Configuración de la página
 st.set_page_config(   
     page_icon="📌",
