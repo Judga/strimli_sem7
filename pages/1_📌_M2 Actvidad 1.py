@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas 
+import pandas as pd
 # Configuración de la página
 st.set_page_config(   
     page_icon="📌",
@@ -26,5 +26,13 @@ st.markdown("""
 """)
 
 st.header("Solución")
-df = pd.read_csv("estudiantes_colombia.csv")
+df = pd.read_csv("pages/static/datasets/estudiantes_colombia.csv")
 df.info()
+df.describe()
+
+print(df[['id', 'nombre', 'edad', 'ciudad']].head())
+print(df[['id', 'nombre', 'edad', 'ciudad']].tail())
+
+
+promedio = st.slider("Selecciona un rango de promedio", 0.0, 5.0, (4.0, 4.5))
+st.write(df[(df['promedio'] >= promedio[0]) & (df['promedio'] <= promedio[1])])
